@@ -12,6 +12,11 @@ namespace Exercise5
             info = i;
             next = n;
         }
+    }
+
+    class Queues
+    {
+        
 
 
         static void Main(string[] args)
