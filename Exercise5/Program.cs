@@ -16,7 +16,8 @@ namespace Exercise5
 
     class Queues
     {
-        
+        Node fahma, rosyidah;
+
 
 
         static void Main(string[] args)
