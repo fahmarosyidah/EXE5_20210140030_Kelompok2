@@ -2,11 +2,13 @@
 
 namespace Exercise5
 {
-    class Program
+    class Node
     {
+
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
