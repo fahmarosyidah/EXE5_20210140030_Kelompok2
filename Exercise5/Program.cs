@@ -24,6 +24,13 @@ namespace Exercise5
             rosyidah = null;
         }
 
+        bool empty()
+        {
+            if (fahma == null)
+                return (true);
+            else
+                return (false);
+        }
 
         public void insert(int element)
         {
@@ -62,10 +69,14 @@ namespace Exercise5
         {
             int tmp;
             if (empty())
-                Console.WriteLine("\nQueue empty");
+                Console.WriteLine("\nantrian kosong");
             else
             {
-                for (tmp = fahma; tmp != null)
+                for (tmp = fahma; tmp != null; tmp = tmp.next)
+                {
+                    Console.WriteLine(tmp.nama);
+                }
+                Console.WriteLine();
             }
         }
         
@@ -97,7 +108,7 @@ namespace Exercise5
                             break;
                         case '2':
                             {
-                                q.insert();
+                                q.delete();
                             }
                             break;
                         case '3':
