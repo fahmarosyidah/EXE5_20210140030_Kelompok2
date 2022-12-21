@@ -42,6 +42,23 @@ namespace Exercise5
             rosyidah = nb;
         }
 
+        public void delete()
+        {
+            Node current;
+
+            if(fahma == null)
+            {
+                Console.WriteLine("Queue empty\n");
+                return;
+            }
+            else
+            {
+                current = fahma;
+                fahma = nb.next;
+            }
+        }
+
+        
         static void Main(string[] args)
         {
             
