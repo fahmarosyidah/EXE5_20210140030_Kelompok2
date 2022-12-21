@@ -18,6 +18,11 @@ namespace Exercise5
     {
         Node fahma, rosyidah;
 
+        public Queues()
+        {
+            fahma = null;
+            rosyidah = null;
+        }
 
 
         static void Main(string[] args)
