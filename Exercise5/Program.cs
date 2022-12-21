@@ -2,28 +2,27 @@
 
 namespace Exercise5
 {
-    class Node
+    class Queue
     {
-        public int info;
-        public Node next;
-
-        public Node(int i, Node n)
+        class Node
         {
-            info = i;
-            next = n;
+            public string info;
+            public Node next;
+            public string nama;
+            public Node(string i, Node n)
+            {
+                nama = i;
+                next = n;
+            }
         }
-    }
 
-    class Queues
-    {
-        Node fahma, rosyidah;
-
-        public Queues()
+        Node fahma;
+        Node rosyidah;
+        public Queue()
         {
             fahma = null;
             rosyidah = null;
         }
-
         bool empty()
         {
             if (fahma == null)
@@ -32,42 +31,33 @@ namespace Exercise5
                 return (false);
         }
 
-        public void insert(int element)
+        public void input(string elemnts)
         {
-            Node nb;
-            nb = new Node(element, null);
-            nb.next = null;
-
+            Node baru;
+            baru = new Node(elemnts, null);
             if (fahma == null)
             {
-                fahma = nb;
-                rosyidah = nb;
-                return;
-            }
-
-            rosyidah.next = nb;
-            rosyidah = nb;
-        }
-
-        public void delete()
-        {
-            Node current;
-
-            if(fahma == null)
-            {
-                Console.WriteLine("Queue empty\n");
-                return;
+                fahma = baru;
+                rosyidah = baru;
             }
             else
             {
-                current = fahma;
-                fahma = nb.next;
+                rosyidah.next = baru;
+                rosyidah = rosyidah.next;
             }
+
+            Console.WriteLine("\n" + elemnts + " ditambahkan.");
+        }
+
+        public void deleting()
+        {
+            Console.WriteLine("\nThe popped emenet is: " + fahma.nama);
+            fahma = fahma.next;
         }
 
         public void display()
         {
-            int tmp;
+            Node tmp;
             if (empty())
                 Console.WriteLine("\nantrian kosong");
             else
@@ -79,55 +69,42 @@ namespace Exercise5
                 Console.WriteLine();
             }
         }
-        
         static void Main(string[] args)
         {
-            Queues q = new Queues();
-            char ch;
+            Queue s = new Queue();
             while (true)
             {
-                try
+                Console.WriteLine();
+                Console.WriteLine("1. Implement insert operation");
+                Console.WriteLine("2. Implement delete operation");
+                Console.WriteLine("3. Display values");
+                Console.WriteLine("4. Exit");
+                Console.Write("\npilihan: ");
+                string sInput = Console.ReadLine();
+                char ch = Convert.ToChar(sInput == "" ? "0" : sInput);
+                switch (ch)
                 {
-                    Console.WriteLine("Menu");
-                    Console.WriteLine("1. Implement insert operation");
-                    Console.WriteLine("2. Implement delete operation");
-                    Console.WriteLine("3. Display value");
-                    Console.WriteLine("4. Exit");
-                    Console.Write("\nEnter your choice (1-4): ");
-                    ch = Convert.ToChar(Console.ReadLine());
-                    Console.WriteLine();
-                    switch (ch)
-                    {
-                        case '1':
-                            {
-                                Console.WriteLine("Enter a number: ");
-                                int num = Convert.ToInt32(System.Console.ReadLine());
-                                Console.WriteLine();
-                                q.insert(num);
-                            }
+                    case '1':
+                        Console.Write("\nTulis sebuah Nama: ");
+                        string num = Console.ReadLine();
+                        s.input(num);
+                        break;
+                    case '2':
+                        if (s.empty())
+                        {
+                            Console.WriteLine("\nIsi kosong");
                             break;
-                        case '2':
-                            {
-                                q.delete();
-                            }
-                            break;
-                        case '3':
-                            {
-                                q.display();
-                            }
-                            break;
-                        case '4':
-                            return;
-                        default:
-                            {
-                                Console.WriteLine("Invalid Option!!");
-                            }
-                            break;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Check for the values entered");
+                        }
+                        s.deleting();
+                        break;
+                    case '3':
+                        s.display();
+                        break;
+                    case '4':
+                        return;
+                    default:
+                        Console.WriteLine("\nSalah Pilih");
+                        break;
                 }
             }
         }
