@@ -25,6 +25,23 @@ namespace Exercise5
         }
 
 
+        public void insert(int element)
+        {
+            Node nb;
+            nb = new Node(element, null);
+            nb.next = null;
+
+            if (fahma == null)
+            {
+                fahma = nb;
+                rosyidah = nb;
+                return;
+            }
+
+            rosyidah.next = nb;
+            rosyidah = nb;
+        }
+
         static void Main(string[] args)
         {
             
