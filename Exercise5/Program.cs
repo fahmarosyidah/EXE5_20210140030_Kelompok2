@@ -58,6 +58,16 @@ namespace Exercise5
             }
         }
 
+        public void display()
+        {
+            int tmp;
+            if (empty())
+                Console.WriteLine("\nQueue empty");
+            else
+            {
+                for (tmp = fahma; tmp != null)
+            }
+        }
         
         static void Main(string[] args)
         {
